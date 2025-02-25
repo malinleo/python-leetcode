@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Optional
 
 
@@ -13,6 +15,18 @@ class TreeNode:
 
     def __repr__(self) -> str:
         return str(self)
+
+    def print_full(self) -> None:
+        print(self.val)
+        self._print_node(self)
+
+    @classmethod
+    def _print_node(cls, node: TreeNode | None):
+        if not node:
+            return
+        print(node.left, node.right)
+        cls._print_node(node.left)
+        cls._print_node(node.right)
 
 
 class FindElements:
@@ -90,25 +104,29 @@ class FindElements:
         if self._check_node(node=node, target=target):
             return True
 
-        if node.left:
-            left_result = self._search_nodes_dfs(node.left, target=target)
-        else:
-            left_result = False
-
-        if node.right:
-            right_result = self._search_nodes_dfs(node.right, target=target)
-        else:
-            right_result = False
-        return left_result or right_result
+        if target > node.val and node.right:
+            return self._search_nodes_dfs(node.right, target=target)
+        elif target < node.val and node.left:
+            return self._search_nodes_dfs(node.left, target=target)
+        return False
 
     def _check_node(self, node: TreeNode, target: int) -> bool:
         return node.val == target
 
 
 if __name__ == "__main__":
-    root = TreeNode(-1, right=TreeNode(-1))
+    root = TreeNode(
+        -1,
+        right=TreeNode(
+            -1,
+            right=TreeNode(-1),
+            left=TreeNode(-1, right=TreeNode(-1), left=TreeNode(-1)),
+        ),
+        left=TreeNode(-1, right=TreeNode(-1, left=TreeNode(-1)), left=TreeNode(-1)),
+    )
 
     # Your FindElements object will be instantiated and called as such:
     obj = FindElements(root)
-    target = 2
+    target = 13
     param_1 = obj.find(target)
+    print(param_1)
