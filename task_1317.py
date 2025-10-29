@@ -6,7 +6,7 @@ class Solution:
         for num in range(1, n):
             other = n - num
             if "0" not in str(other) and "0" not in str(num):
-                return [num, other]
+                return [num, other]s
 
     def _has_0_in_repr(self, number: int):
         while number:
