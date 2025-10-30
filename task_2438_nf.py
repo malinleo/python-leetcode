@@ -23,9 +23,3 @@ class Solution:
                 )
 
         return [lookup_table[left][right] for left, right in queries]
-
-
-if __name__ == "__main__":
-    s = Solution()
-    res = s.productQueries(15, [[0, 1], [2, 2], [0, 3]])
-    print(res)

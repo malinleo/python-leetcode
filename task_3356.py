@@ -26,8 +26,3 @@ class Solution:
             if all((num <= 0 for num in non_zero_items_map.values())):
                 return steps
         return -1
-
-
-sol = Solution()
-res = sol.minZeroArray([7, 6, 8], [[0, 0, 2], [0, 1, 5], [2, 2, 5], [0, 2, 4]])
-print(res)

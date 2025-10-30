@@ -13,8 +13,3 @@ class Solution:
             lasers_count += prev_sds_count * current_sds_count
             prev_sds_count = current_sds_count
         return lasers_count
-
-
-sol = Solution()
-kek = sol.numberOfBeams(["000", "111", "000"])
-print(kek)

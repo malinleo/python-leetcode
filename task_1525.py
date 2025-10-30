@@ -32,8 +32,3 @@ class Solution:
                 good_splits_count += 1
 
         return good_splits_count
-
-
-sol = Solution()
-res = sol.numSplits("aaaaa")
-print(res)
