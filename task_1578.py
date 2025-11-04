@@ -22,8 +22,3 @@ class Solution:
                 prev_i = i
             i += 1
         return total_time
-
-
-sol = Solution()
-res = sol.minCost("aaaaaaaaaaaaaa", [1, 3, 6, 5, 4, 5, 4, 4, 2, 8, 3, 10, 6, 6])
-print(res)

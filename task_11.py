@@ -37,8 +37,3 @@ class Solution2:
             else:
                 r -= 1
         return max_area
-
-
-sol = Solution2()
-res = sol.maxArea([1, 1])
-print(res)
